@@ -14,3 +14,15 @@ distributions {
         }
     }
 }
+
+task processTestPdfResources(type: Copy) {
+    with distributions.main.contents
+    into "$buildDir/testPdf"
+    rename 'template.pdf', 'expected.pdf'
+}
+
+task compileTestPdf(type: Exec) {
+    dependsOn processTestPdfResources
+    commandLine 'latexmk', '-pdf', 'template'
+    workingDir processTestPdfResources.destinationDir
+}
