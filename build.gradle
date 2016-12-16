@@ -44,7 +44,7 @@ task testPdf {
     doLast {
         new ByteArrayOutputStream().withStream { out ->
             exec {
-                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v'
+                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v', '--output-diff=diff.pdf'
                 workingDir processTestPdfResources.destinationDir
                 standardOutput = out
                 ignoreExitValue = true
@@ -59,7 +59,7 @@ task testXelatex {
     doLast {
         new ByteArrayOutputStream().withStream { out ->
             exec {
-                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v'
+                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v', '--output-diff=diff.pdf'
                 workingDir processTestXelatexResources.destinationDir
                 standardOutput = out
                 ignoreExitValue = true
