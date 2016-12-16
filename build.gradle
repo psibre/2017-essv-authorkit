@@ -1,0 +1,72 @@
+plugins {
+    id 'distribution'
+}
+
+distributions {
+    main {
+        contents {
+            from 'latex'
+            include 'template.tex',
+                    'essv.sty',
+                    'abbildung_1.pdf',
+                    'essv.bib',
+                    'template.pdf'
+        }
+    }
+}
+
+task processTestPdfResources(type: Copy) {
+    with distributions.main.contents
+    into "$buildDir/testPdf"
+    rename 'template.pdf', 'expected.pdf'
+}
+
+task processTestXelatexResources(type: Copy) {
+    with distributions.main.contents
+    into "$buildDir/testXelatex"
+    rename 'template.pdf', 'expected.pdf'
+}
+
+task compileTestPdf(type: Exec) {
+    dependsOn processTestPdfResources
+    commandLine 'latexmk', '-pdf', 'template'
+    workingDir processTestPdfResources.destinationDir
+}
+
+task compileTestXelatex(type: Exec) {
+    dependsOn processTestXelatexResources
+    commandLine 'latexmk', '-xelatex', 'template'
+    workingDir processTestXelatexResources.destinationDir
+}
+
+task testPdf {
+    dependsOn compileTestPdf
+    doLast {
+        new ByteArrayOutputStream().withStream { out ->
+            exec {
+                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v', '--output-diff=diff.pdf'
+                workingDir processTestPdfResources.destinationDir
+                standardOutput = out
+                ignoreExitValue = true
+            }
+            assert !(out =~ /differs/)
+        }
+    }
+    check.dependsOn it
+}
+
+task testXelatex {
+    dependsOn compileTestXelatex
+    doLast {
+        new ByteArrayOutputStream().withStream { out ->
+            exec {
+                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v', '--output-diff=diff.pdf'
+                workingDir processTestXelatexResources.destinationDir
+                standardOutput = out
+                ignoreExitValue = true
+            }
+            assert !(out =~ /differs/)
+        }
+    }
+    check.dependsOn it
+}
