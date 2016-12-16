@@ -1,0 +1,16 @@
+plugins {
+    id 'distribution'
+}
+
+distributions {
+    main {
+        contents {
+            from 'latex'
+            include 'template.tex',
+                    'essv.sty',
+                    'abbildung_1.pdf',
+                    'essv.bib',
+                    'template.pdf'
+        }
+    }
+}
