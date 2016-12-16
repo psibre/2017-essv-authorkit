@@ -38,3 +38,33 @@ task compileTestXelatex(type: Exec) {
     commandLine 'latexmk', '-xelatex', 'template'
     workingDir processTestXelatexResources.destinationDir
 }
+
+task testPdf {
+    dependsOn compileTestPdf
+    doLast {
+        new ByteArrayOutputStream().withStream { out ->
+            exec {
+                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v'
+                workingDir processTestPdfResources.destinationDir
+                standardOutput = out
+                ignoreExitValue = true
+            }
+            assert !(out =~ /differs/)
+        }
+    }
+}
+
+task testXelatex {
+    dependsOn compileTestXelatex
+    doLast {
+        new ByteArrayOutputStream().withStream { out ->
+            exec {
+                commandLine 'diff-pdf', 'expected.pdf', 'template.pdf', '-v'
+                workingDir processTestXelatexResources.destinationDir
+                standardOutput = out
+                ignoreExitValue = true
+            }
+            assert !(out =~ /differs/)
+        }
+    }
+}
