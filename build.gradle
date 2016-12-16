@@ -21,8 +21,20 @@ task processTestPdfResources(type: Copy) {
     rename 'template.pdf', 'expected.pdf'
 }
 
+task processTestXelatexResources(type: Copy) {
+    with distributions.main.contents
+    into "$buildDir/testXelatex"
+    rename 'template.pdf', 'expected.pdf'
+}
+
 task compileTestPdf(type: Exec) {
     dependsOn processTestPdfResources
     commandLine 'latexmk', '-pdf', 'template'
     workingDir processTestPdfResources.destinationDir
+}
+
+task compileTestXelatex(type: Exec) {
+    dependsOn processTestXelatexResources
+    commandLine 'latexmk', '-xelatex', 'template'
+    workingDir processTestXelatexResources.destinationDir
 }
