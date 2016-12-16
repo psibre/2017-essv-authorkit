@@ -52,6 +52,7 @@ task testPdf {
             assert !(out =~ /differs/)
         }
     }
+    check.dependsOn it
 }
 
 task testXelatex {
@@ -67,4 +68,5 @@ task testXelatex {
             assert !(out =~ /differs/)
         }
     }
+    check.dependsOn it
 }
