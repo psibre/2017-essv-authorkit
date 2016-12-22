@@ -9,6 +9,10 @@ distributions {
             include 'template.tex',
                     'essv.sty',
                     'abbildung_1.pdf',
+                    'essv.bst',
+                    'babelbst.tex',
+                    'englbst.tex',
+                    'germbst.tex',
                     'essv.bib',
                     'template.pdf'
         }
