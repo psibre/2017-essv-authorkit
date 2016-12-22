@@ -48,6 +48,21 @@
   \end{center}
 }
 
+% format abstract
+\addto\captionsngerman{%
+  \renewcommand{\abstractname}%
+    {Kurzfassung}%
+}
+\renewenvironment{abstract}{%th
+  \vspace{-0.75cm}
+  \begin{center}
+  \begin{minipage}{13.9cm}
+  \paragraph{\abstractname:}
+}{%
+  \end{minipage}
+  \end{center}
+}
+
 % format section titles
 \usepackage{titlesec}
 
