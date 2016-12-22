@@ -64,7 +64,10 @@
 }
 
 % format section titles
-\usepackage{titlesec}
+\usepackage[small]{titlesec}
+\titleformat*{\subsubsection}{}
+\titlespacing*{\section}{0pt}{*2}{*3}
+\titlespacing*{\paragraph}{0pt}{*2}{*0.5}
 
 % format floats
 \usepackage{caption}
