@@ -25,6 +25,28 @@
 % format main title
 \usepackage{setspace}
 \usepackage{titling}
+\setlength{\droptitle}{-1.3cm}
+\pretitle{%
+  \begin{center}
+    \large
+    \bf
+    \scshape
+    \setstretch{0.8}
+}
+\posttitle{%
+    \par
+  \end{center}
+}
+\preauthor{%
+  \begin{center}
+    \vspace{0.5cm}
+    \it
+}
+\postauthor{%
+    \par
+    \vspace{-0.5cm}
+  \end{center}
+}
 
 % format section titles
 \usepackage{titlesec}
