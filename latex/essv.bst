@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `babel,seq-no,nm-rev1,jnrlst,nmft,nmft-sc,nmfted,nmand-rm,xmth,tit-it,volp-com,jwdpg,num-xser,ser-vol,doi,edpar,au-col,pp,ed,abr,xedn,etal-xc,eprint,url,url-blk,nfss,')
+%% merlin.mbs  (with options: `babel,seq-no,nm-rev1,jnrlst,nmft,nmft-sc,nmfted,nmand-rm,xmth,tit-it,volp-com,jwdpg,doi,edpar,au-col,pp,ed,abr,xedn,etal-xc,eprint,url,url-blk,nfss,')
 %% ----------------------------------------
 %% ***  ***
 %% 
@@ -645,7 +645,8 @@ FUNCTION {format.bvolume}
       "volume" bibinfo.check * *
       series "series" bibinfo.check
       duplicate$ empty$ 'pop$
-        { emphasize ", " * swap$ * }
+        { swap$ bbl.of space.word * swap$
+          emphasize * }
       if$
       "volume and number" number either.or.check
     }
@@ -655,14 +656,14 @@ FUNCTION {format.number.series}
 { volume empty$
     { number empty$
         { series field.or.null }
-        { series empty$
-            { number "number" bibinfo.check }
-            { output.state mid.sentence =
-                { bbl.number }
-                { bbl.number capitalize }
-              if$
-              number tie.or.space.prefix "number" bibinfo.check * *
-              bbl.in space.word *
+        { output.state mid.sentence =
+            { bbl.number }
+            { bbl.number capitalize }
+          if$
+          number tie.or.space.prefix "number" bibinfo.check * *
+          series empty$
+            { "there's a number but no series in " cite$ * warning$ }
+            { bbl.in space.word *
               series "series" bibinfo.check *
             }
           if$

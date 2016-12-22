@@ -347,16 +347,16 @@ End of customized bst file
 % jwdvol,%: Include `volume' in articles
 %--------------------
 %NUMBER AND SERIES FOR COLLECTIONS:
-  num-xser,%: Allows number without series
-%   %: (def) Standard BibTeX
+% num-xser,%: Allows number without series
+    %: (def) Standard BibTeX
 %--------------------
 %POSITION OF NUMBER AND SERIES:
     %: (def) After chapter and pages
 % numser,%: Just before publisher
 %--------------------
 %VOLUME AND SERIES FOR BOOKS/COLLECTIONS:
-%   %: (def) Vol. 23 of Series
-  ser-vol,%: Series, vol. 23
+    %: (def) Vol. 23 of Series
+% ser-vol,%: Series, vol. 23
 %--------------------
 %POSITION OF VOLUME AND SERIES FOR INCOLLECTIONS:
     %: (def) Series and volume after the editors
