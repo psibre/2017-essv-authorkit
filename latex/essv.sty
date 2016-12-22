@@ -1,154 +1,104 @@
+% LaTeX package for ESSV
 %
+% (c) Ingmar Steiner
 %
-% the ESSV latex-style
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
 %
-%
-%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{essv}[2016/12/22 v0.9 LaTeX package for ESSV]
 
-% ---------------------------------------------------------------
-% with LaTeX2e:
-% =============
-%
-% use as
-%   \documentclass[12pt]{article}
-%   \usepackage{essv}
-%   \usepackage{times}
-%
-% ---------------------------------------------------------------
+% fonts and encoding
+\RequirePackage{mathptmx}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
 
-% with LaTeX 2.09:
-% ================
-%
-% use as
-%   \documentstyle[times,essv]{article}
-%
-% ---------------------------------------------------------------
-% with both versions:
-% ===================
-%
-% specify \pagestyle{empty} to omit page numbers in the final
-% version
-%
+% L10n
+\RequirePackage[ngerman,english]{babel}
+\RequirePackage{iflang}
 
-\typeout{ESSV LaTeX-Style}
+% layout
+\RequirePackage[verbose]{geometry}
+\geometry{%
+  margin=2.5cm,
+  bottom=2cm
+}
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+}
 
-\AtBeginDocument{%
-  \@ifundefined{captionsngerman}{\typeout{no ngerman}%
-    \@ifundefined{captionsgerman}{\typeout{no german}%
-      \def\essvabstractname{Abstract}}{\typeout{german}%
-      \def\essvabstractname{Kurzfassung}}}{\typeout{ngerman}%
-      \def\essvabstractname{Kurzfassung}}}%
+% format main title
+\RequirePackage{setspace}
+\RequirePackage{titling}
+\setlength{\droptitle}{-1.3cm}
+\pretitle{%
+  \begin{center}
+    \large
+    \bf
+    \scshape
+    \setstretch{0.8}
+}
+\posttitle{%
+    \par
+  \end{center}
+}
+\preauthor{%
+  \begin{center}
+    \vspace{0.5cm}
+    \it
+}
+\postauthor{%
+    \par
+    \vspace{-0.5cm}
+  \end{center}
+}
 
-\renewcommand\Large{\@setfontsize\large\@xiipt{14}}
-\renewcommand\large{\@setfontsize\large\@xivpt{14}}
+% format abstract
+\addto\captionsngerman{%
+  \renewcommand{\abstractname}%
+    {Kurzfassung}%
+}
+\renewenvironment{abstract}{%th
+  \vspace{-0.75cm}
+  \begin{center}
+  \begin{minipage}{13.9cm}
+  \paragraph{\abstractname:}
+}{%
+  \end{minipage}
+  \end{center}
+}
 
-% set dimensions of columns, gap between columns, and paragraph indent
-\setlength{\textheight}{25.2cm}
-\setlength{\textwidth}{16cm}
-\setlength{\topmargin}{0cm}
-\setlength{\headheight}{0cm}
-\setlength{\headsep}{0cm}
-\setlength{\parindent}{3pt}
-\setlength{\oddsidemargin}{0cm}
-\setlength{\evensidemargin}{0cm}
-\setlength{\marginparwidth}{0cm}
-\setlength{\marginparsep}{0cm}
+% format section titles
+\RequirePackage[small]{titlesec}
+\titleformat*{\subsubsection}{}
+\titlespacing*{\section}{0pt}{*2}{*3}
+\titlespacing*{\paragraph}{0pt}{*2}{*0.5}
 
-% memento from size10.clo
-% \normalsize{\@setfontsize\normalsize\@xpt\@xiipt}
-% \small{\@setfontsize\small\@ixpt{11}}
-% \footnotesize{\@setfontsize\footnotesize\@viiipt{9.5}}
-% \scriptsize{\@setfontsize\scriptsize\@viipt\@viiipt}
-% \tiny{\@setfontsize\tiny\@vpt\@vipt}
-% \large{\@setfontsize\large\@xiipt{14}}
-% \Large{\@setfontsize\Large\@xivpt{18}}
-% \LARGE{\@setfontsize\LARGE\@xviipt{22}}
-% \huge{\@setfontsize\huge\@xxpt{25}}
-% \Huge{\@setfontsize\Huge\@xxvpt{30}}
+% format floats
+\RequirePackage{caption}
+\captionsetup{%
+  margin=0.75cm,
+  skip=0.25cm,
+  font=footnotesize,
+  labelfont=bf,
+  labelsep=endash,
+  singlelinecheck=off
+}
+\setlength{\textfloatsep}{5pt plus 1.0pt minus 2.0pt}
+\setlength{\intextsep}{18pt plus 1.0pt minus 2.0pt}
 
-\def\@maketitle
-{
-  \newpage
-  \null
-  {\centering
-    {\large\bfseries\scshape \@title \par}
-    \vspace*{24pt}
-    {\normalsize\itshape
-      \lineskip .5em
-      \begin{tabular}[t]{c}
-        \@author
-      \end{tabular}
-      \par
-      }
-    \vskip .5em
-    {\normalsize\itshape
-      \begin{tabular}[t]{c}
-        \@affiliation
-      \end{tabular}
-      \par
-      \ifx \@empty \@email
-      \else
-      \begin{tabular}[t]{c}
-        \@email
-      \end{tabular}
-      \par
-      \fi
-      }% additional empty line at the end of the title block
-    \vspace*{12pt}}
-  }
+% graphics
+\RequirePackage{graphicx}
 
-\renewenvironment{abstract}{%
-  \quote{\bfseries\essvabstractname:}}
-{\endquotation}
-%\def\abstract
-%{%
-%  \quote{\bf Abstract:~}%
-%    }
+% hyperlinks
+\RequirePackage[hidelinks,pdfusetitle]{hyperref}
 
-%\def\endabstract
-%{%
-%% additional empty line at the end of the abstract
-%\vspace*{12pt}
-%}
+\endinput
 
-\def\affiliation#1{\gdef\@affiliation{#1}} \gdef\@affiliation{}
-
-\def\email#1{\gdef\@email{#1}}
-\gdef\@email{}
-
-\newlength{\@ctmp}
-\newlength{\@figindent}
-\setlength{\@figindent}{1pc}
-
-\long\def\@makecaption#1#2{
-   \vskip\abovecaptionskip
-   \setbox\@tempboxa\hbox{\hspace{0.75cm} {\footnotesize{\bfseries
-#1}~-~#2}}
-   \setlength{\@ctmp}{\hsize}
-   \addtolength{\@ctmp}{-0.75cm}\addtolength{\@ctmp}{-\@figindent}
-   % IF longer than one indented paragraph line
-   \ifdim \wd\@tempboxa >\@ctmp
-      % THEN set as an indented paragraph
-      \begin{list}{}{\leftmargin0.75cm \rightmargin\leftmargin}
-         \item[] {\footnotesize{\bfseries #1}~-~#2}\par
-      \end{list}
-   \else
-      % ELSE center
-      \hbox to\hsize{\box\@tempboxa\hfil}
-   \fi}
-
-\renewcommand\section{\@startsection {section}{1}{\z@}%
-                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                   {2.3ex \@plus.2ex}%
-                                   {\normalfont\large\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1.5ex \@plus .2ex}%
-                                     {\normalfont\normalsize\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-                                     {1.5ex \@plus .2ex}%
-                                     {\normalfont\normalsize\mdseries}}
-
-% end of file essv.sty
-% ---------------------------------------------------------------
+%%
+%% End of file `essv.sty'.
