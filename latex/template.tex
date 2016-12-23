@@ -3,6 +3,9 @@
 % ESSV-Stil anwenden:
 \usepackage{essv}
 
+% Zitate, Referenzen
+\usepackage[numbers]{natbib}
+
 % Titel, Autoren:
 \title{Formatvorlage für Beiträge Konferenz elektronische Sprachsignalverarbeitung}
 \author{Jürgen Trouvain$^1$, Ingmar Steiner$^{1,2}$, Bernd Möbius$^1$}
@@ -83,9 +86,9 @@ beträgt rechts \emph{und} links 0,75 cm.
   \label{tab:tabelle_1}
 \end{table}
 
-\begin{figure}[hbt]
+\begin{figure}
   \centering
-  \includegraphics[scale=.45]{abbildung_1}
+  \includegraphics[scale=.35]{abbildung_1}
   \caption{Systemarchitektur der Entwicklungsumgebung}
   \label{fig:abbildung_1}
 \end{figure}
@@ -98,9 +101,10 @@ beträgt rechts \emph{und} links 0,75 cm.
 
 Textkörper: Times New Roman, 12pt, normal, Blocksatz
 
-% Beispiel-Zitate:
-\nocite{2003_ESSV_MM}
-\nocite{Fellbaum1999}
+\section{Zitate, Literaturangaben}
+
+Literaturangaben werden numerisch zitiert \citep[z.B.][]{Fellbaum1999}, aber Autoren wie \citet{2003_ESSV_MM} dürfen im Text genannt werden.
+Dazu wird das \LaTeX-Paket \emph{natbib}\footnote{\url{https://www.ctan.org/pkg/natbib}} empfohlen.
 
 % ESSV-Bibliographie-Stil:
 \bibliographystyle{essv}

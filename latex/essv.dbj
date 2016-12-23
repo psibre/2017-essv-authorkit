@@ -26,8 +26,8 @@ End of customized bst file
   babel,%: Babel
 %--------------------
 %STYLE OF CITATIONS:
-    %: (def) Numerical
-% ay,%: Author-year
+%   %: (def) Numerical
+  ay,%: Author-year
 % alph,%: Alpha style, Jon90 or JWB90
 % alph,alf-1,%: Alpha style, Jon90
 % alph,alf-f,%: Alpha style, Jones90
