@@ -57,6 +57,14 @@
     \vspace{-0.5cm}
   \end{center}
 }
+\predate{%
+  \begin{center}
+  \it
+  \vspace{6pt}
+}
+\postdate{%
+  \end{center}
+}
 
 % format abstract
 \addto\captionsngerman{%
@@ -103,6 +111,11 @@
   urlcolor=black,
   pdfusetitle
 ]{hyperref}
+
+% metadata
+\DeclareRobustCommand{\affil}[1]{\def\theaffil{#1}}
+\DeclareRobustCommand{\email}[1]{\def\theemail{#1}}
+\AtBeginDocument{\date{\theaffil\\[6pt]\href{mailto:\theemail}{\theemail}}}
 
 \endinput
 

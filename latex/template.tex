@@ -1,24 +1,19 @@
 \documentclass[12pt,a4paper]{article}
 
-% ESSV style
+% ESSV-Stil anwenden:
 \usepackage{essv}
 
-% citations, references
-\usepackage[numbers]{natbib}
-
-% metadata
-\title{
-  Formatvorlage für Beiträge Konferenz elektronische Sprachsignalverarbeitung
-}
-\author{
-  Matthias Wolff, Matthias Eichner und Rüdiger Hoffmann\\[6pt]
-  Institution\\
-  Email-Adresse des Hauptautors
-}
-\date{}
+% Titel, Autoren:
+\title{Formatvorlage für Beiträge Konferenz elektronische Sprachsignalverarbeitung}
+\author{Jürgen Trouvain$^1$, Ingmar Steiner$^{1,2}$, Bernd Möbius$^1$}
+% Institut(e)/Affiliation(en) der Autoren
+\affil{$^1$Universität des Saarlandes, $^2$DFKI GmbH}
+% Email-Adresse des Hauptautors
+\email{trouvain@coli.uni-saarland.de}
 
 \begin{document}
 
+% Für Beiträge in englischer Sprache folgende Zeile entfernen/auskommentieren:
 \selectlanguage{ngerman}
 
 \maketitle
@@ -103,10 +98,13 @@ beträgt rechts \emph{und} links 0,75 cm.
 
 Textkörper: Times New Roman, 12pt, normal, Blocksatz
 
+% Beispiel-Zitate:
 \nocite{2003_ESSV_MM}
 \nocite{Fellbaum1999}
 
+% ESSV-Bibliographie-Stil:
 \bibliographystyle{essv}
+% BibTeX-Daten aus `essv.bib' laden:
 \bibliography{essv}
 
 \end{document}
