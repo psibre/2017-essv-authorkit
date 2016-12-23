@@ -60,10 +60,11 @@
 \predate{%
   \begin{center}
   \it
-  \vspace{6pt}
+  \vspace{8pt}
 }
 \postdate{%
   \end{center}
+  \vspace{8pt}
 }
 
 % format abstract
@@ -72,7 +73,6 @@
     {Kurzfassung}%
 }
 \renewenvironment{abstract}{%th
-  \vspace{-0.75cm}
   \begin{center}
   \begin{minipage}{13.9cm}
   \paragraph{\abstractname:}
@@ -115,7 +115,7 @@
 % metadata
 \DeclareRobustCommand{\affil}[1]{\def\theaffil{#1}}
 \DeclareRobustCommand{\email}[1]{\def\theemail{#1}}
-\AtBeginDocument{\date{\theaffil\\[6pt]\href{mailto:\theemail}{\theemail}}}
+\AtBeginDocument{\date{\theaffil\\\href{mailto:\theemail}{\theemail}}}
 
 \endinput
 
