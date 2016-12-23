@@ -3,7 +3,7 @@ plugins {
 }
 
 distributions {
-    main {
+    latex {
         contents {
             from 'latex'
             include 'template.tex',
@@ -21,13 +21,13 @@ distributions {
 }
 
 task processTestPdfResources(type: Copy) {
-    with distributions.main.contents
+    with distributions.latex.contents
     into "$buildDir/testPdf"
     rename 'template.pdf', 'expected.pdf'
 }
 
 task processTestXelatexResources(type: Copy) {
-    with distributions.main.contents
+    with distributions.latex.contents
     into "$buildDir/testXelatex"
     rename 'template.pdf', 'expected.pdf'
 }
