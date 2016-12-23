@@ -13,6 +13,11 @@ distributions {
                     'template.pdf'
         }
     }
+    word {
+        contents {
+            from 'word'
+        }
+    }
 }
 
 task processTestPdfResources(type: Copy) {
