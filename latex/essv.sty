@@ -57,15 +57,6 @@
     \vspace{-0.5cm}
   \end{center}
 }
-\predate{%
-  \begin{center}
-  \it
-  \vspace{8pt}
-}
-\postdate{%
-  \end{center}
-  \vspace{8pt}
-}
 
 % format abstract
 \addto\captionsngerman{%
@@ -118,8 +109,19 @@
 \AtEndOfPackage{%
   \affil{~}
   \email{~}
+  \predate{%
+    \begin{center}
+    \it
+    \vspace{8pt}
+    \theaffil\\
+  }
+  \postdate{%
+    \href{mailto:\theemail}{\theemail}
+    \end{center}
+    \vspace{8pt}
+  }
 }
-\AtBeginDocument{\date{\theaffil\\\href{mailto:\theemail}{\theemail}}}
+\AtBeginDocument{\date{}}
 
 \endinput
 
