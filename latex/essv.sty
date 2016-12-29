@@ -115,6 +115,10 @@
 % metadata
 \DeclareRobustCommand{\affil}[1]{\def\theaffil{#1}}
 \DeclareRobustCommand{\email}[1]{\def\theemail{#1}}
+\AtEndOfPackage{%
+  \affil{~}
+  \email{~}
+}
 \AtBeginDocument{\date{\theaffil\\\href{mailto:\theemail}{\theemail}}}
 
 \endinput
