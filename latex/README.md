@@ -14,9 +14,13 @@ Please see `template.tex` for a full example.
 Language, Encoding
 ------------------
 
-The language can be switched to German using `\selectlanguage{ngerman}` (and back to English with `\selectlanguage{english}`).
+The language can be switched to German using `\selectlanguage{ngerman}` (and back to
+English with `\selectlanguage{english}`).
 
-The package assumes **UTF-8** encoding of the LaTeX source files. If you use any special characters (i.e., umlauts, etc.) and need to save your file in another encoding (e.g., Latin-1) for some reason, you will need to insert the command `\inputencoding{latin1}` (substitute appropriate encoding name) after loading this package.
+The package assumes **UTF-8** encoding of the LaTeX source files. If you use any special
+characters (i.e., umlauts, etc.) and need to save your file in another encoding (e.g.,
+Latin-1) for some reason, you will need to insert the command `\inputencoding{latin1}`
+(substitute appropriate encoding name) after loading this package.
 
 Requirements
 ------------
