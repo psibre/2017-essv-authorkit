@@ -1,6 +1,11 @@
 LaTeX Author Kit for ESSV 2017
 ==============================
 
+At the top of your main LaTeX file, declare the class options with
+```
+\documentclass[12pt,a4paper]{article}
+```
+
 Copy the following files into the directory of your LaTeX paper:
 - `essv.sty`
 - `essv.bst`
