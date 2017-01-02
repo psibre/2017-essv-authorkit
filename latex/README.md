@@ -25,7 +25,8 @@ Latin-1) for some reason, you will need to insert the command `\inputencoding{la
 Requirements
 ------------
 
-This package requires the following LaTeX packages to be installed:
+This package requires the following LaTeX packages; they should be available in any
+modern LaTeX installation.
 - [babel](https://www.ctan.org/pkg/babel)
 - [caption](https://www.ctan.org/pkg/caption)
 - [fancyhdr](https://www.ctan.org/pkg/fancyhdr)
