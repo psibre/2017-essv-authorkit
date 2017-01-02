@@ -14,7 +14,8 @@ distributions {
                     'englbst.tex',
                     'germbst.tex',
                     'essv.bib',
-                    'template.pdf'
+                    'template.pdf',
+                    'README.md'
         }
     }
     word {
