@@ -29,6 +29,7 @@ This package requires the following LaTeX packages; they should be available in 
 modern LaTeX installation.
 - [babel](https://www.ctan.org/pkg/babel)
 - [caption](https://www.ctan.org/pkg/caption)
+- [doi](https://www.ctan.org/pkg/doi)
 - [fancyhdr](https://www.ctan.org/pkg/fancyhdr)
 - [fontenc](https://www.ctan.org/pkg/fontenc)
 - [geometry](https://www.ctan.org/pkg/geometry)
