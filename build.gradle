@@ -21,6 +21,8 @@ distributions {
     word {
         contents {
             from 'word'
+            include 'template.doc',
+                    'template.pdf'
         }
     }
 }
