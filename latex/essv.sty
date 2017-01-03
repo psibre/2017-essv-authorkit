@@ -7,7 +7,7 @@
 %% in directory macros/latex/base/lppl.txt.
 %
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{essv}[2017/01/02 v0.9 LaTeX package for ESSV]
+\ProvidesPackage{essv}[2017/01/03 v0.9 LaTeX package for ESSV]
 
 % fonts and encoding
 \RequirePackage{mathptmx}
@@ -77,6 +77,10 @@
 \titleformat*{\subsubsection}{}
 \titlespacing*{\section}{0pt}{*2}{*3}
 \titlespacing*{\paragraph}{0pt}{*2}{*0.5}
+
+% format paragraphs
+\setlength{\parindent}{0.75cm}
+\setlength{\parskip}{0.3pt}
 
 % format floats
 \RequirePackage{caption}
